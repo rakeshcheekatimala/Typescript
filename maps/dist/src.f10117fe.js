@@ -85123,6 +85123,10 @@ function () {
     };
   }
 
+  User.prototype.markerContent = function () {
+    return "User Name " + this.name;
+  };
+
   return User;
 }();
 
@@ -85154,6 +85158,10 @@ function () {
     };
   }
 
+  Company.prototype.markerContent = function () {
+    return "Company Name " + this.companyName + " CatchPharse " + this.catchPhrase;
+  };
+
   return Company;
 }();
 
@@ -85178,13 +85186,21 @@ function () {
     });
   }
 
-  CustomMap.prototype.addUserMarker = function (mappableObject) {
-    new google.maps.Marker({
+  CustomMap.prototype.addMarker = function (mappableObject) {
+    var _this = this;
+
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappableObject.location.lat,
         lng: mappableObject.location.lng
       }
+    });
+    marker.addListener('click', function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: mappableObject.markerContent()
+      });
+      infoWindow.open(_this.googleMap, marker);
     });
   };
 
@@ -85214,8 +85230,8 @@ var map_1 = __importDefault(require("./map"));
 var user = new user_1.default();
 var company = new company_1.default();
 var customMap = new map_1.default('map');
-customMap.addUserMarker(user);
-customMap.addCompanyMarker(company);
+customMap.addMarker(user);
+customMap.addMarker(company);
 },{"./user":"src/user.ts","./company":"src/company.ts","./map":"src/map.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -85244,7 +85260,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58796" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59702" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
