@@ -1,0 +1,45 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\P1331405\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add concurrently nodemon
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\P1331405\Desktop\Work\HiApp\Softwares\java-1.8.0-openjdk-1.8.0.252-2.b09.redhat.windows.x86_64\bin;C:\Users\P1331405\Desktop\Work\HiApp\Softwares\apache-tomcat-7.0.104\\bin;C:\Users\P1331405\AppData\Local\Microsoft\WindowsApps;C:\Users\P1331405\AppData\Roaming\npm;C:\Users\P1331405\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\P1331405\AppData\Local\Programs\Git\cmd
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.18.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://nexus.dev.aws.singtel.com/repository/npm-group/concurrently: tunneling socket could not be established, cause=getaddrinfo ENOTFOUND singtelproxy.net.vic
+      at ClientRequest.onError (C:\Users\P1331405\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:152234:17)
+      at Object.onceWrapper (events.js:422:26)
+      at ClientRequest.emit (events.js:315:20)
+      at Socket.socketErrorListener (_http_client.js:426:9)
+      at Socket.emit (events.js:315:20)
+      at emitErrorNT (internal/streams/destroy.js:92:8)
+      at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
