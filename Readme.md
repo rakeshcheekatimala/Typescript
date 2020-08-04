@@ -51,3 +51,13 @@ When to use Annotations:
 - When you have a function that return is any.
 - When you declare a variable and use it later
 - When we want a variable with a type that can't be inferred
+
+#Projects
+
+- maps
+  - we use parcel to bundle the dependencies required for this app
+  - Parcel will compile ts to JS and replace the ts file to make it run on the browser
+
+Type Defintions:
+
+- These are files that typescript rely on while using any external library so that typescript what rules are applied for each file in the library
