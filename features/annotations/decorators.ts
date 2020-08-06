@@ -1,7 +1,9 @@
 class Boat {
   color: string = 'red';
 
+  @logError("Damn boat is sunk , now you can't see the color")
   formattedColor(): string {
+    throw new Error();
     return `This boats color is ${this.color}`;
   }
 
@@ -31,6 +33,25 @@ function testDecorator(
   };
 }
 
-new Boat().pilot();
 // pilot has a decorator that throws error, the implementation of decorator
 // using property decorator makes the error caught,catch blocks executes and prints the message
+
+new Boat().pilot();
+
+//decorator factories help pass some information to the decorator
+
+function logError(errorMessage: string) {
+  return function (target: any, key: string, desc: PropertyDescriptor) {
+    const method = desc.value;
+    // override the implementation
+    desc.value = () => {
+      try {
+        method();
+      } catch (e) {
+        console.log(errorMessage);
+      }
+    };
+  };
+}
+
+new Boat().formattedColor();
